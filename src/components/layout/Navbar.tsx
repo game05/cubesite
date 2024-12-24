@@ -2,12 +2,30 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+      setIsMenuOpen(false) // Ferme le menu mobile si ouvert
+    } else {
+      // Si l'élément n'existe pas (probablement sur une autre page), 
+      // on navigue vers la page avec l'ancre
+      router.push(`/#${id}`)
+    }
+  }
 
   return (
-    <nav className="bg-white shadow-lg">
+    <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -15,14 +33,31 @@ export default function Navbar() {
               <span className="text-xl font-bold text-gray-800">CubeSite</span>
             </Link>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link href="/pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">
-                Tarifs
+              <Link
+                href="/"
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
+              >
+                Accueil
               </Link>
-              <Link href="/features" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">
+              <a
+                href="/#features"
+                onClick={(e) => handleScroll(e, 'features')}
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900 cursor-pointer"
+              >
                 Fonctionnalités
-              </Link>
-              <Link href="/templates" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">
-                Templates
+              </a>
+              <a
+                href="/#pricing"
+                onClick={(e) => handleScroll(e, 'pricing')}
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900 cursor-pointer"
+              >
+                Nos offres
+              </a>
+              <Link
+                href="/wiki"
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900"
+              >
+                Wiki
               </Link>
             </div>
           </div>
@@ -40,7 +75,6 @@ export default function Navbar() {
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
             >
               <span className="sr-only">Ouvrir le menu</span>
-              {/* Icon */}
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
               </svg>
@@ -53,14 +87,25 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="sm:hidden">
           <div className="pt-2 pb-3 space-y-1">
-            <Link href="/pricing" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Tarifs
+            <Link href="/" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+              Accueil
             </Link>
-            <Link href="/features" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+            <a
+              href="/#features"
+              onClick={(e) => handleScroll(e, 'features')}
+              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 cursor-pointer"
+            >
               Fonctionnalités
-            </Link>
-            <Link href="/templates" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Templates
+            </a>
+            <a
+              href="/#pricing"
+              onClick={(e) => handleScroll(e, 'pricing')}
+              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 cursor-pointer"
+            >
+              Nos offres
+            </a>
+            <Link href="/wiki" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+              Wiki
             </Link>
             <Link href="/login" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
               Connexion

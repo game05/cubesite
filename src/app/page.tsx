@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* Features Section */}
-      <div className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div id="features" className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -100,7 +100,7 @@ export default function Home() {
       </div>
 
       {/* Pricing Section */}
-      <div className="py-24 bg-white">
+      <div id="pricing" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
