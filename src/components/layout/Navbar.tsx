@@ -107,12 +107,21 @@ export default function Navbar() {
             <Link href="/wiki" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
               Wiki
             </Link>
-            <Link href="/login" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Connexion
-            </Link>
-            <Link href="/register" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Inscription
-            </Link>
+          </div>
+          
+          {/* Séparateur */}
+          <div className="border-t border-gray-200 pt-4 pb-3">
+            <div className="space-y-2 px-3">
+              <Link href="/login" className="block py-2 text-base font-medium text-gray-700 hover:text-gray-900">
+                Connexion
+              </Link>
+              <Link 
+                href="/register" 
+                className="block text-center py-2 px-4 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+              >
+                Inscription
+              </Link>
+            </div>
           </div>
         </div>
       )}
