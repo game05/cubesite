@@ -62,10 +62,10 @@ export default function Navbar() {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Link href="/login" className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/auth/login" className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
               Connexion
             </Link>
-            <Link href="/register" className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+            <Link href="/auth/register" className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
               Inscription
             </Link>
           </div>
@@ -104,19 +104,34 @@ export default function Navbar() {
             >
               Nos offres
             </a>
-            <Link href="/templates" className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+            <Link
+              href="/templates"
+              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
               Templates
+            </Link>
+            <Link
+              href="/auth/login"
+              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Connexion
+            </Link>
+            <Link
+              href="/auth/register"
+              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Inscription
             </Link>
           </div>
           
           {/* Séparateur */}
           <div className="border-t border-gray-200 pt-4 pb-3">
             <div className="space-y-2 px-3">
-              <Link href="/login" className="block py-2 text-base font-medium text-gray-700 hover:text-gray-900">
+              <Link href="/auth/login" className="block py-2 text-base font-medium text-gray-700 hover:text-gray-900">
                 Connexion
               </Link>
               <Link 
-                href="/register" 
+                href="/auth/register" 
                 className="block text-center py-2 px-4 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
               >
                 Inscription
