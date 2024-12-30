@@ -4,11 +4,19 @@
 
 @font-face {
   font-family: 'Minecraft';
-  src: url('/fonts/minecraft.ttf') format('truetype');
+  src: url('/fonts/MinecraftRegular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 .font-minecraft {
-  font-family: 'Minecraft', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: 'Minecraft', system-ui, -apple-system, sans-serif;
+}
+
+/* Style pour le hero section Minecraft */
+.hero-minecraft {
+  background-image: url('/images/minecraft-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
