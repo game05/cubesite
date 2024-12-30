@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import DefaultTemplate from '@/templates/default'
 
 interface SiteData {
   name: string
@@ -54,8 +55,7 @@ export default function SitePage({ params }: { params: { subdomain: string } }) 
     )
   }
 
-  // Charger dynamiquement le template correspondant
-  const Template = require(`@/templates/${site.template}`).default
-
-  return <Template site={site} />
+  // Pour l'instant, on utilise toujours le template par défaut
+  // Plus tard, on pourra ajouter d'autres templates
+  return <DefaultTemplate site={site} />
 }
