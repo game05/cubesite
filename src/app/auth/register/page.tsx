@@ -34,6 +34,9 @@ export default function RegisterPage() {
 
       if (error) throw error
 
+      // Sauvegarder l'email pour la page de vérification
+      window.localStorage.setItem('userEmail', email)
+      
       router.push('/auth/verify-email')
     } catch (error: any) {
       setError(error.message)
@@ -65,7 +68,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-white flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8">
         <h2 className="text-2xl font-bold text-center mb-8">Créer un compte</h2>
         
