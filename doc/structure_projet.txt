@@ -1,0 +1,33 @@
+Structure principale du projet CubeSite
+Date d'analyse: 2024-12-30 17:38:41
+================================================================================
+
+Fichiers de configuration et documentation :
+📄 .gitignore
+📄 README.md
+📄 next-env.d.ts
+📄 next.config.js
+📄 package.json
+📄 postcss.config.js
+📁 public/
+  📁 fonts/
+  📁 templates/
+📁 src/
+  📁 app/
+    📄 globals.css
+    📄 layout.tsx
+    📄 not-found.tsx
+    📄 page.tsx
+    📁 templates/
+      📁 modern-craft/
+        📁 preview/
+          📄 page.tsx
+      📄 page.tsx
+  📁 components/
+    📁 layout/
+      📄 Footer.tsx
+      📄 Navbar.tsx
+  📁 styles/
+    📄 globals.css
+📄 tailwind.config.ts
+📄 tsconfig.json
